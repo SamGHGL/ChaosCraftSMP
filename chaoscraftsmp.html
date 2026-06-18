@@ -302,7 +302,7 @@
 <header class="hero">
   <div class="sun"></div>
   <svg class="horizon" viewBox="0 0 1200 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,300 0,180 40,180 40,210 80,210 80,150 120,150 120,200 160,200 160,120 200,120 200,190 240,190 240,160 280,160 280,90 320,90 320,170 360,170 360,140 400,140 400,200 440,200 440,110 480,110 480,180 520,180 520,150 560,150 560,80 600,80 600,160 640,160 640,130 680,130 680,190 720,190 720,100 760,100 760,170 800,170 800,140 840,140 840,200 880,200 880,120 920,120 920,180 960,180 960,150 1000,150 1000,90 1040,90 1040,170 1080,170 1080,140 1120,140 1120,210 1160,210 1160,160 1200,160 1200,300"
+    <polygon points="0,300 0,180 40,180 40,210 80,210 80,150 120,150 120,200 160,200 160,120 200,120 200,190 240,190 240,160 280,160 280,90 320,90 320,170 360,170 360,140 400,140 400,200 440,200 440,100 480,100 480,180 520,180 520,60 560,60 560,150 600,150 600,110 640,110 640,190 680,190 680,80 720,80 720,160 760,160 760,120 800,120 800,200 840,200 840,90 880,90 880,170 920,170 920,130 960,130 960,210 1000,210 1000,70 1040,70 1040,180 1080,180 1080,140 1120,140 1120,220 1160,220 1160,100 1200,100 1200,300"
       fill="#120f1a" opacity="0.92"/>
   </svg>
 
@@ -328,7 +328,7 @@
       <button class="btn btn-primary" onclick="copyIP()">
         📋 IP kopieren <code id="ip-inline">SERVER-IP-HIER-EINTRAGEN</code>
       </button>
-      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" href="http://client.falixnodes.net/join?server=chaoscraftsmp" target="_blank" rel="noopener">
         <span class="discord-dot"></span> Discord beitreten
       </a>
     </div>
@@ -416,8 +416,8 @@
       </div>
       <div class="steps reveal">
         <div class="step"><div class="num">1</div><h3>Bedrock öffnen</h3><p>Minecraft Bedrock Edition auf deinem Gerät starten.</p></div>
-        <div class="step"><div class="num">2</div><h3>Server-Tab wählen</h3><p>Im Hauptmenü zu „Server“ wechseln.</p></div>
-        <div class="step"><div class="num">3</div><h3>IP eintragen</h3><p>Server hinzufügen, Name „ChaosCraftSMP“ und die Adresse eingeben.</p></div>
+        <div class="step"><div class="num">2</div><h3>Server-Tab wählen</h3><p>Im Hauptmenü zu „Server" wechseln.</p></div>
+        <div class="step"><div class="num">3</div><h3>IP eintragen</h3><p>Server hinzufügen, Name „ChaosCraftSMP" und die Adresse eingeben.</p></div>
         <div class="step"><div class="num">4</div><h3>Loslegen</h3><p>Verbinden und ankommen — willkommen in der Welt.</p></div>
       </div>
 
@@ -442,7 +442,7 @@
       <a href="#about">Über uns</a>
       <a href="#features">Features</a>
       <a href="#join">Beitreten</a>
-      <a href="#" target="_blank" rel="noopener">Discord</a>
+      <a href="http://client.falixnodes.net/join?server=chaoscraftsmp" target="_blank" rel="noopener">Discord</a>
     </div>
   </div>
 </footer>
@@ -450,13 +450,18 @@
 <div id="toast">IP kopiert!</div>
 
 <script>
-  // Server-IP zentral hier eintragen, sobald bekannt — wird überall automatisch übernommen.
-  const SERVER_IP = "SERVER-IP-HIER-EINTRAGEN";
-  document.getElementById('ip-inline').textContent = SERVER_IP;
-  document.getElementById('ip-display').textContent = SERVER_IP;
+  // Zentrale Konfiguration — Hier werden alle Links und Einstellungen zentral verwaltet
+  const CONFIG = {
+    SERVER_IP: "SERVER-IP-HIER-EINTRAGEN",
+    JOIN_LINK: "http://client.falixnodes.net/join?server=chaoscraftsmp"
+  };
+
+  // Server-IP und Links überall automatisch übernehmen
+  document.getElementById('ip-inline').textContent = CONFIG.SERVER_IP;
+  document.getElementById('ip-display').textContent = CONFIG.SERVER_IP;
 
   function copyIP(){
-    const text = SERVER_IP;
+    const text = CONFIG.SERVER_IP;
     const toast = document.getElementById('toast');
     function showToast(msg){
       toast.textContent = msg;
