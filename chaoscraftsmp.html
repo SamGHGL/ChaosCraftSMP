@@ -328,7 +328,7 @@
       <button class="btn btn-primary" onclick="copyIP()">
         📋 IP kopieren <code id="ip-inline">SERVER-IP-HIER-EINTRAGEN</code>
       </button>
-      <a class="btn btn-ghost" href="http://client.falixnodes.net/join?server=chaoscraftsmp" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" id="discord-btn" href="https://discord.gg/7Pw6rGrrSA" target="_blank" rel="noopener">
         <span class="discord-dot"></span> Discord beitreten
       </a>
     </div>
@@ -442,7 +442,7 @@
       <a href="#about">Über uns</a>
       <a href="#features">Features</a>
       <a href="#join">Beitreten</a>
-      <a href="http://client.falixnodes.net/join?server=chaoscraftsmp" target="_blank" rel="noopener">Discord</a>
+      <a id="discord-footer" href="https://discord.gg/7Pw6rGrrSA" target="_blank" rel="noopener">Discord</a>
     </div>
   </div>
 </footer>
@@ -453,12 +453,16 @@
   // Zentrale Konfiguration — Hier werden alle Links und Einstellungen zentral verwaltet
   const CONFIG = {
     SERVER_IP: "SERVER-IP-HIER-EINTRAGEN",
-    JOIN_LINK: "http://client.falixnodes.net/join?server=chaoscraftsmp"
+    DISCORD_INVITE: "https://discord.gg/7Pw6rGrrSA"
   };
 
-  // Server-IP und Links überall automatisch übernehmen
+  // Server-IP überall automatisch übernehmen
   document.getElementById('ip-inline').textContent = CONFIG.SERVER_IP;
   document.getElementById('ip-display').textContent = CONFIG.SERVER_IP;
+
+  // Discord-Links aktualisieren
+  document.getElementById('discord-btn').href = CONFIG.DISCORD_INVITE;
+  document.getElementById('discord-footer').href = CONFIG.DISCORD_INVITE;
 
   function copyIP(){
     const text = CONFIG.SERVER_IP;
